@@ -5,12 +5,11 @@
 const express = require('express');
 const db = require('./db');
 const bodyParser = require('body-parser');
+const routes = require('./routes');
 
 const app = express();
-const routes = require('./routes');
-// parse application/json
 app.use(bodyParser.json());
-
+// Mount all routes
 app.use('/', routes);
 
 module.exports = app;

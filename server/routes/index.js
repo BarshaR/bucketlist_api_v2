@@ -3,12 +3,13 @@
  */
 
 const routes = require('express').Router();
+const userController = require('../controllers/UserController');
 
 /**
  * User Routes
  */
-routes.post('/user', (req, res) => {
-    res.send(req.body);
+routes.post('/api/user', (req, res) => {
+    userController.create(req, res);
 });
 
 module.exports = routes;
