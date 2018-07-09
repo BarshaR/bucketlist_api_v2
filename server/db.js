@@ -12,3 +12,5 @@ mongo.connect(DB_URI, (err, database) => {
     db = database;
     console.log('Connected to database');
 });
+
+module.exports = db;

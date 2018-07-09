@@ -3,13 +3,13 @@
  */
 
 const routes = require('express').Router();
-const userController = require('../controllers/UserController');
+const authController = require('../controllers/auth/AuthController');
 
 /**
- * User Routes
+ * Auth Routes
  */
-routes.post('/api/user', (req, res) => {
-    userController.create(req, res);
+routes.post('/api/user/register', (req, res) => {
+    authController.register(req, res);
 });
 
 module.exports = routes;

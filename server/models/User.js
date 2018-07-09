@@ -13,6 +13,10 @@ const UserSchema = mongo.Schema({
     lists: Array,
 });
 
+UserSchema.query.byEmail = function (email) {
+    return this.findOne({ email: email });
+};
+
 const User = mongo.model('User', UserSchema);
 
 module.exports = User;
