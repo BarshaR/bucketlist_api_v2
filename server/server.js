@@ -2,8 +2,9 @@
  * Server Configuration
  */
 
-const app = require('./app');
+const app = require('./app').default;
 require('dotenv').load();
+
 
 const port = process.env.PORT || 3000;
 

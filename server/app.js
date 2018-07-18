@@ -12,4 +12,4 @@ app.use(bodyParser.json());
 // Mount all routes
 app.use('/', routes);
 
-module.exports = app;
+export default app;

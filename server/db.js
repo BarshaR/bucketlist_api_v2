@@ -1,16 +1,16 @@
+/**
+ * Connect to the database
+ */
 const mongo = require('mongoose');
 
 const DB_URI = process.env.MONGODB_URI || 'mongodb://localhost:27017/bucketlist';
 
-let db;
-
-mongo.connect(DB_URI, (err, database) => {
-    if (err) {
-        console.error('Database connection failed, make sure mongod is running and try again');
-        throw err;
-    }
-    db = database;
+mongo.connect(DB_URI, { useNewUrlParser: true });
+mongo.connection.on('connected', () => {
+    // db = database;
     console.log('Connected to database');
 });
-
-module.exports = db;
+mongo.connection.on('error', (err) => {
+    console.error('Database connection failed, make sure mongod is running and try again');
+    throw err;
+});
